@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:control="clr-namespace:University.App.Controls"
+             xmlns:i18n="clr-namespace:University.App.Helpers"
+             x:Class="University.App.Views.Forms.PQRSPage" BackgroundColor="{DynamicResource Gray-100}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding PQRS}">
+            <StackLayout Margin="20,32"
+                         Spacing="0"
+                         VerticalOptions="FillAndExpand">
+
+                <Grid RowSpacing="10"
+                      VerticalOptions="CenterAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Picker HorizontalOptions="FillAndExpand"
+                            Title="{i18n:Translate TypeRequest}"
+                            BackgroundColor="Transparent"
+                            ItemsSource="{Binding TypeRequests}"
+                            ItemDisplayBinding="{Binding Name}"/>
+
+                    <control:BorderlessEntry Grid.Row="1"
+                                             Placeholder="{i18n:Translate Name}"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Name}"/>
+
+                    <control:BorderlessEntry Grid.Row="2"
+                                             Placeholder="{i18n:Translate Surname}"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Surname}"/>
+
+                    <control:BorderlessEntry Grid.Row="3"
+                                             Placeholder="{i18n:Translate Direction}"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Direction}"/>
+
+                    <control:BorderlessEntry Grid.Row="4"
+                                             Placeholder="{i18n:Translate Phone}"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Phone}"/>
+
+                    <control:BorderlessEntry Grid.Row="5"
+                                             Placeholder="{i18n:Translate Email}"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Email}"/>
+
+                    <control:BorderlessEntry Grid.Row="6"
+                                             Placeholder="{i18n:Translate Message}"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Message}"/>
+
+                    <Picker Grid.Row="7" 
+                            HorizontalOptions="FillAndExpand"
+                            Title="{i18n:Translate RateService}"
+                            BackgroundColor="Transparent"
+                            ItemsSource="{Binding RateServices}"
+                            ItemDisplayBinding="{Binding Name}"/>
+
+                    <Button Grid.Row="8"
+                            Margin="0,16"
+                            Text="{i18n:Translate Send}"
+                            Style="{StaticResource ButtonStyle}"/>
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
